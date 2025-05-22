@@ -20,7 +20,7 @@ spec:
         ports:
         - containerPort: 8080
         volumeMounts:
-        - name: mysql
+        - name: db-creds
           mountPath: "/secrets"
           readOnly: true      
         livenessProbe:
@@ -32,8 +32,8 @@ spec:
             path: /health/ready
             port: 8080
       volumes:
-      - name: mysql
+      - name: db-creds
         secret:
-          secretName: mysql-credentials
+          secretName: db-credentials
  
            
